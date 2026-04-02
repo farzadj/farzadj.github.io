@@ -1,3 +1,5 @@
+[Crypto Lab website](https://farzadj.github.io/crypto-lab/)
+
 # Crypto Lab
 
 Crypto Lab is a native Android crypto-analysis app backed by a Python API on Google Cloud Run.
