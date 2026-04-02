@@ -1,1 +1,1 @@
-[Visit my website](https://farzadj.github.io)
+[Forex Lab website](https://farzadj.github.io)
