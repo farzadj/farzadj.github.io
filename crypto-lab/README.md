@@ -39,6 +39,7 @@ The app does not call the market-data provider directly. The Android client talk
 
 ### Supported timeframes
 
+- `5m`
 - `15m`
 - `1h`
 - `4h`
@@ -61,7 +62,7 @@ The app does not call the market-data provider directly. The Android client talk
   - best-setup and scanner handoff to chart
 - `Data`
   - market and timeframe selection
-  - live feed context control
+  - spot / perpetual feed control
 - `Settings`
   - detector parameters
   - advanced per-strategy controls
@@ -86,6 +87,8 @@ Free keeps the core chart workflow available.
 Pro expands the workflow with:
 
 - broader market and timeframe access
+- `5m` intraday validation
+- Binance perpetual feed selection
 - the premium strategy pack
 - scanner scope across multiple chart contexts
 - backend alert rules
@@ -187,3 +190,4 @@ The root [`.gitignore`](.gitignore) blocks common local, generated, and secret-b
 ## Status
 
 This repository contains both the Android product surface and the production backend used for live charting, scanning, historical validation, alerts, presets, entitlement checks, and subscription-aware workflow gating for Crypto Lab.
+
