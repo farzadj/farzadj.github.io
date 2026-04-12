@@ -91,7 +91,7 @@
 <body>
   <main>
     <section>
-      <p class="muted">Last updated: March 25, 2026</p>
+      <p class="muted">Last updated: April 12, 2026</p>
       <h1>Forex Lab Privacy Policy</h1>
       <p>
         This Privacy Policy explains how Forex Lab handles information when you use the
@@ -136,8 +136,9 @@
         </li>
         <li>
           <strong>Subscription and purchase verification data</strong>, such as Google Play
-          purchase token, subscription product ID, purchase state, and related entitlement
-          status, if you buy or restore Forex Lab Pro.
+          purchase token, subscription product ID, subscription plan, purchase state,
+          related entitlement status, and scan-credit purchase verification data, if you
+          buy or restore Forex Lab Pro or purchase scan-credit packs.
         </li>
         <li>
           <strong>Market-analysis requests and responses</strong>, such as requested pair,
@@ -145,8 +146,16 @@
           generated signals or proposed setups.
         </li>
         <li>
+          <strong>Analytics and diagnostics data</strong>, such as app-instance identifiers,
+          Firebase installation identifiers, screen views, app interactions, app lifecycle
+          events, purchase and subscription analytics events, crash logs, device and app
+          metadata, approximate location derived from masked IP by analytics providers, and
+          advertising identifiers where available through Google Play services and Firebase
+          Analytics in release builds.
+        </li>
+        <li>
           <strong>Operational and support data</strong>, such as IP address, user agent,
-          request timestamps, error logs, and emails or messages you send to support.
+          request timestamps, backend logs, and emails or messages you send to support.
         </li>
       </ul>
     </section>
@@ -160,6 +169,7 @@
         <li>sync saved presets and alert rules across app sessions</li>
         <li>register and deliver push notifications that you enable</li>
         <li>verify subscriptions and unlock Pro features</li>
+        <li>measure feature usage, product flow, and purchase conversion</li>
         <li>protect the service from abuse, fraud, and service instability</li>
         <li>debug crashes, backend errors, and infrastructure issues</li>
         <li>respond to support or privacy requests</li>
@@ -172,6 +182,10 @@
         Forex Lab stores some information locally on your device, including selected pair,
         timeframe, chart state, app preferences, and strategy settings. This local storage
         is used to make the app function properly and is not used for advertising.
+      </p>
+      <p>
+        If you save chart captures, annotations, or exports, those files are stored on your
+        device or in app-controlled cache/storage until you remove them or share them.
       </p>
     </section>
 
@@ -195,6 +209,8 @@
       <ul>
         <li>Google Play Billing to process and verify Forex Lab Pro subscriptions</li>
         <li>Firebase Cloud Messaging to deliver push notifications</li>
+        <li>Firebase Analytics to measure app usage, screen views, and purchase events</li>
+        <li>Firebase Crashlytics to collect crash reports and related diagnostics</li>
         <li>cloud hosting, caching, and infrastructure providers used to run the backend</li>
         <li>market-data providers used to retrieve forex price data</li>
         <li>email providers if you contact support by email</li>
@@ -208,9 +224,20 @@
       <h2>7. Advertising, Analytics, and Profiling</h2>
       <p>
         Forex Lab is not an ad-supported app and does not use advertising IDs for ad
-        targeting. At the time of this policy update, the Android app includes Firebase
-        Cloud Messaging for notifications and Google Play Billing for subscriptions, but
-        does not include a separate analytics SDK for user-behavior profiling.
+        targeting, ad sales, or third-party ad networks.
+      </p>
+      <p>
+        The Android app currently includes Firebase Analytics and Firebase Crashlytics in
+        release builds. These services may process app-instance identifiers, Firebase
+        installation identifiers, app interactions, screen views, app lifecycle events,
+        purchase and subscription events, crash logs, device and app metadata, and
+        approximate location derived from masked IP.
+      </p>
+      <p>
+        Because Firebase Analytics is included, Google Play services may make advertising
+        identifiers available to the app's analytics stack where supported by the platform
+        and user settings. Forex Lab does not use those identifiers to serve ads or build
+        third-party advertising profiles.
       </p>
     </section>
 
@@ -238,7 +265,9 @@
         <li>saved presets and alert rules remain until you delete them or request removal</li>
         <li>push registration data may remain until notifications are disabled, the token becomes invalid, or the registration is cleaned up</li>
         <li>subscription verification and entitlement records may be retained as needed for subscription support, fraud prevention, and compliance</li>
+        <li>analytics and crash data may be retained according to Firebase and Google Analytics retention settings and operational needs</li>
         <li>logs, cache entries, and temporary market snapshots are retained only as long as reasonably necessary for operations, reliability, and debugging</li>
+        <li>chart captures or exports saved to your device remain until you delete them from device storage</li>
       </ul>
     </section>
 
@@ -255,6 +284,7 @@
       <h2>11. Your Choices</h2>
       <ul>
         <li>you can decline notification permission or disable notifications later in Android settings</li>
+        <li>you can manage analytics- and identifier-related controls provided by Android or Google settings, such as advertising identifier reset or limitation where supported by your device and region</li>
         <li>you can delete saved presets and alert rules from within the app where those controls are available</li>
         <li>you can uninstall the app and clear local app data from your device</li>
         <li>for privacy-related requests, including removal of synced backend data where reasonably applicable, you can contact the support address below</li>
