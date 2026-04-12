@@ -146,6 +146,11 @@
           generated signals or proposed setups.
         </li>
         <li>
+          <strong>Major News briefing data</strong>, such as cached macro-news brief output,
+          source links, configured timezone context used to localize scheduled event labels,
+          and public web/news search context used by the backend to prepare the brief.
+        </li>
+        <li>
           <strong>Analytics and diagnostics data</strong>, such as app-instance identifiers,
           Firebase installation identifiers, screen views, app interactions, app lifecycle
           events, purchase and subscription analytics events, crash logs, device and app
@@ -169,6 +174,7 @@
         <li>sync saved presets and alert rules across app sessions</li>
         <li>register and deliver push notifications that you enable</li>
         <li>verify subscriptions and unlock Pro features</li>
+        <li>prepare cached Major News briefs and summarize macro-news context for supported forex pairs</li>
         <li>measure feature usage, product flow, and purchase conversion</li>
         <li>protect the service from abuse, fraud, and service instability</li>
         <li>debug crashes, backend errors, and infrastructure issues</li>
@@ -194,12 +200,21 @@
       <p>
         Forex Lab uses a backend service to fetch market data, generate signals, rank
         proposed setups, run scanner and historical-check workflows, store synced presets
-        and alert rules, manage entitlement state, and deliver backend-driven alerts.
+        and alert rules, manage entitlement state, deliver backend-driven alerts, and
+        prepare cached Major News briefs.
       </p>
       <p>
         The backend may also use standard operational processing such as caching, rate
         limiting, authentication, request logging, and monitoring needed to keep the
         service reliable and secure.
+      </p>
+      <p>
+        For the Major News feature, the backend may use OpenAI as a service provider to
+        summarize public macro-news coverage and economic-calendar context into a cached
+        trader-oriented brief. This processing may include timezone context used to format
+        scheduled event labels and public source URLs returned with the brief. Forex Lab
+        does not use this feature to send chart screenshots, drawing annotations, purchase
+        credentials, or free-form user prompts to OpenAI.
       </p>
     </section>
 
@@ -211,6 +226,7 @@
         <li>Firebase Cloud Messaging to deliver push notifications</li>
         <li>Firebase Analytics to measure app usage, screen views, and purchase events</li>
         <li>Firebase Crashlytics to collect crash reports and related diagnostics</li>
+        <li>OpenAI to generate cached Major News summaries from public web/news coverage and configured timezone context</li>
         <li>cloud hosting, caching, and infrastructure providers used to run the backend</li>
         <li>market-data providers used to retrieve forex price data</li>
         <li>email providers if you contact support by email</li>
@@ -246,7 +262,13 @@
       <p>
         Forex Lab does not sell your personal information. We may share data with service
         providers only when needed to host, secure, cache, deliver notifications, verify
-        subscriptions, or otherwise operate the app and backend.
+        subscriptions, generate cached Major News summaries, or otherwise operate the app
+        and backend.
+      </p>
+      <p>
+        For the Major News feature, this may include sharing configured timezone context,
+        public web/news search instructions, and generated summary content with OpenAI as a
+        service provider acting on our behalf.
       </p>
       <p>
         We may also disclose information if required by law, regulation, valid legal
@@ -266,6 +288,7 @@
         <li>push registration data may remain until notifications are disabled, the token becomes invalid, or the registration is cleaned up</li>
         <li>subscription verification and entitlement records may be retained as needed for subscription support, fraud prevention, and compliance</li>
         <li>analytics and crash data may be retained according to Firebase and Google Analytics retention settings and operational needs</li>
+        <li>cached Major News briefs and related source metadata may be retained for limited operational periods to support scheduled refreshes, delivery, and troubleshooting</li>
         <li>logs, cache entries, and temporary market snapshots are retained only as long as reasonably necessary for operations, reliability, and debugging</li>
         <li>chart captures or exports saved to your device remain until you delete them from device storage</li>
       </ul>
