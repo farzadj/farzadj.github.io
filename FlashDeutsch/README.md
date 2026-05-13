@@ -2,97 +2,235 @@
 
 # FlashDeutsch
 
-FlashDeutsch is a native Android flashcard app for learners of German with Persian, English, Spanish, Russian, and Arabic learning-language modes. It is fully offline after install and uses the bundled study PDFs in [`app/src/main/assets/pdfs`](app/src/main/assets/pdfs) as its source material.
+FlashDeutsch is a native Android app for learning German from `A1` to `B2` with offline flashcards, grammar explanations, grammar practice, milestone-based study paths, saved review, custom cards, speech playback, and a dedicated workplace vocabulary library.
 
-## What It Builds
+The app is built with Kotlin, Jetpack Compose, Room, and DataStore. Study content is generated offline from bundled PDF sources and imported into the app as JSON assets on first launch.
 
-- Native Android app
-- Kotlin + Jetpack Compose + Material 3
+## Highlights
+
+- `A1`, `A2`, `B1`, `B1+`, and `B2` learning workflows
+- Separate sentence, vocabulary, and grammar study paths
+- `Study mode` milestone journey with 10 milestone steps per level
+- Localized grammar explanations:
+  - German source first
+  - learner-language translation underneath
+- Saved `Favorite` and `Hard` review
+- Custom flashcard creation and editing
+- German text-to-speech playback
+- Optional ad-supported unlock flows and a Google Play Pro subscription
+- Jobs / workplace vocabulary workflow with dedicated decks
+- Fully offline core learning after install
+
+## Supported Languages
+
+The app currently supports the following learner languages for flashcards and grammar explanations:
+
+- English
+- Persian
+- Italian
+- Spanish
+- Russian
+- Arabic
+- Chinese
+- French
+
+The app UI also supports switching app language and learning language inside the app.
+
+## Content Snapshot
+
+Current generated asset snapshot from [`app/src/main/assets/generated/import_summary.json`](app/src/main/assets/generated/import_summary.json):
+
+- asset version: `23`
+- decks: `119`
+- cards: `7259`
+- import warnings tracked in summary: `168`
+
+Main content groups:
+
+- level sentence decks
+- level vocabulary decks
+- grammar explanation topics
+- grammar practice decks
+- workplace / jobs vocabulary decks
+
+Source PDFs live in [`app/src/main/assets/pdfs/`](app/src/main/assets/pdfs/).
+
+## Tech Stack
+
+- Kotlin
+- Jetpack Compose
+- Material 3
 - Navigation Compose
-- MVVM with screen-level `ViewModel`s
-- Room for offline persistence
-- DataStore for settings
-- Offline deck import from generated JSON assets
+- Room
+- DataStore Preferences
+- Gson
+- Google Mobile Ads SDK
+- Google UMP consent SDK
+- Google Play Billing
 
-## Source PDFs
+Build config:
 
-The repository currently imports these PDFs:
-
-- `B1_perplexity.pdf`
-- `B1_plus_perplexity.pdf`
-- `B1_plus2_perplexity.pdf`
-- `B1_plus3_perplexity.pdf`
-- `B1_plus_voc_perplexity.pdf`
-- `B1_plus_voc_200_perplexity.pdf`
-- `B1_plus_voc2_200_perplexity.pdf`
-- `B1_plus_voc3_200_perplexity.pdf`
-
-The generated import summary currently contains:
-
-- 116 decks
-- 4259 cards
-- 80 import and translation warnings
-
-## Parsing Strategy
-
-The app does **not** parse PDFs on-device. Instead, it uses a build-time normalization pipeline:
-
-1. PDFs are stored in `app/src/main/assets/pdfs/`.
-2. [`tools/generate_decks.py`](tools/generate_decks.py) reads the PDFs with `pypdf`.
-3. The script detects sentence vs vocabulary decks from the observed line format.
-4. It preserves deck names, topics, and source filenames.
-5. It normalizes Persian text into logical RTL order.
-6. It generates offline learning-language support text at build time:
-   - German is the primary source for English, Spanish, Russian, and Arabic
-   - Persian can be used as a comparison/fallback signal where helpful
-   - translations are cached in [`tools/translation_cache.json`](tools/translation_cache.json) to avoid repeating long network runs
-   - [`tools/fill_learning_language_assets.py`](tools/fill_learning_language_assets.py) can fill an added learning-language layer without reparsing every PDF
-7. It writes:
-   - [`app/src/main/assets/generated/decks.json`](app/src/main/assets/generated/decks.json)
-   - [`app/src/main/assets/generated/import_summary.json`](app/src/main/assets/generated/import_summary.json)
-8. The Android app imports the generated JSON into Room on first launch or when re-import is triggered from Settings.
-
-This is more reliable than on-device PDF parsing because the PDF text structure is consistent but not clean enough to trust runtime extraction across devices.
-
-## App Features
-
-- Workflow-first browsing by library, type, category, and generated study set
-- Flashcards with flip, next, previous, shuffle, hard, and favorite
-- Resume last studied position per deck and mode
-- Search across German, Persian, English, Spanish, Russian, Arabic, categories, and study metadata
-- Saved favorite and hard-card decks
-- Persian/Arabic RTL rendering and German LTR rendering
-- German device TTS with visible-side autoplay/read-mode support
-- Theme selection: system, light, dark
-- First-run selection for app language and learning language
-- Font scale, learning-language-first vocabulary side order, shuffle default, and haptics settings
-- Reset progress and re-import actions
+- `minSdk = 26`
+- `targetSdk = 36`
+- `compileSdk = 36`
+- `applicationId = com.fj.flashdeutsch`
 
 ## Architecture
 
-### Packages
+### Main packages
 
-- `ui`
-  - screens, navigation, reusable Compose components, theme
-- `domain`
-  - app models, quiz logic, progress calculations
-- `data`
+- `app/src/main/java/com/flashdeutsch/ui`
+  - screens, navigation, reusable Compose UI, theme, speech
+- `app/src/main/java/com/flashdeutsch/domain`
+  - app models, milestone planning, study-mode logic
+- `app/src/main/java/com/flashdeutsch/data`
   - repository orchestration and domain mapping
-- `parser/importer`
-  - generated asset models and asset importer
-- `database`
-  - Room entities, DAOs, database
-- `settings`
-  - DataStore-backed settings repository
+- `app/src/main/java/com/flashdeutsch/database`
+  - Room entities, DAOs, migrations, database
+- `app/src/main/java/com/flashdeutsch/parser/importer`
+  - generated asset models and import layer
+- `app/src/main/java/com/flashdeutsch/settings`
+  - DataStore-backed settings and local unlock state
+- `tools/`
+  - PDF parsing, asset generation, localization overrides, QA scripts, tests
 
-### Data Flow
+### Data flow
 
-1. `SplashViewModel` calls repository initialization.
-2. The repository checks the generated asset version from DataStore.
-3. If needed, JSON assets are imported into Room.
-4. Screen `ViewModel`s observe immutable UI state from repository `Flow`s.
-5. User actions flow back through the `ViewModel` to repository mutations.
-6. Settings drive both app chrome language and the learning-language side used in flashcards, quiz, typing, search, and TTS fallback logic.
+1. The app reads generated JSON assets from `assets/generated/`.
+2. On first launch or asset-version change, the repository imports those assets into Room.
+3. Screen `ViewModel`s observe repository `Flow`s and expose immutable UI state.
+4. Progress, saved cards, milestone unlocks, app settings, and Pro state are persisted locally.
+5. Ads, consent, and Play Billing are integrated on top of the offline core app flow.
+
+## Content Pipeline
+
+The app does **not** parse PDFs on-device. PDFs are normalized at build/content-generation time.
+
+Pipeline:
+
+1. Source PDFs are stored in [`app/src/main/assets/pdfs/`](app/src/main/assets/pdfs/).
+2. [`tools/generate_decks.py`](tools/generate_decks.py) parses and normalizes the content.
+3. The script generates:
+   - [`app/src/main/assets/generated/decks.json`](app/src/main/assets/generated/decks.json)
+   - [`app/src/main/assets/generated/grammar.json`](app/src/main/assets/generated/grammar.json)
+   - [`app/src/main/assets/generated/import_summary.json`](app/src/main/assets/generated/import_summary.json)
+   - [`tools/grammar_localization_report.json`](tools/grammar_localization_report.json)
+4. Translation and normalization caches/overrides live under `tools/`, including:
+   - [`tools/translation_cache.json`](tools/translation_cache.json)
+   - `grammar_translation_overrides*.json`
+5. The Android app imports the generated JSON into Room.
+
+This approach avoids runtime PDF parsing issues and keeps the app stable and offline-first.
+
+## Grammar Localization
+
+Grammar explanation topics are localized offline and then manually refined through override files under `tools/`.
+
+Current QA status from [`tools/grammar_localization_report.json`](tools/grammar_localization_report.json):
+
+- Persian: `0` missing, `0` suspicious
+- Italian: `0` missing, `0` suspicious
+- Spanish: `0` missing, `0` suspicious
+- Russian: `0` missing, `0` suspicious
+- Arabic: `0` missing, `0` suspicious
+- Chinese: `0` missing, `0` suspicious
+- French: `0` missing, `0` suspicious
+
+## Jobs / Workplace Library
+
+The app includes a separate jobs workflow on the home page. It is built from these PDF sources:
+
+- `german_beruf_jobs_20_topics_1000_words_persian_examples_varied_sentences.pdf`
+- `german_beruf_jobs_set2_20_topics_1000_words_persian_examples.pdf`
+- `german_beruf_specialist_jobs_set3_20_topics_1000_words_persian_examples.pdf`
+- `german_beruf_jobs_set1_natural_sentences.pdf`
+- `german_beruf_jobs_set2_natural_sentences.pdf`
+- `german_beruf_specialist_jobs_set3_natural_sentences_v2.pdf`
+
+The jobs workflow uses vocabulary-style flashcards with example sentences and is available alongside the CEFR level workflows.
+
+## Build
+
+### Debug build
+
+```powershell
+$env:JAVA_HOME='C:\Program Files\Android\Android Studio\jbr'
+$env:Path="$env:JAVA_HOME\bin;$env:Path"
+.\gradlew assembleDebug
+```
+
+Debug APK output:
+
+- `app/build/outputs/apk/debug/app-debug.apk`
+
+### Unit tests
+
+```powershell
+python -m unittest tools.tests.test_generate_decks
+```
+
+```powershell
+$env:JAVA_HOME='C:\Program Files\Android\Android Studio\jbr'
+$env:Path="$env:JAVA_HOME\bin;$env:Path"
+.\gradlew testDebugUnitTest
+```
+
+### Android test compilation
+
+```powershell
+$env:JAVA_HOME='C:\Program Files\Android\Android Studio\jbr'
+$env:Path="$env:JAVA_HOME\bin;$env:Path"
+.\gradlew assembleDebugAndroidTest
+```
+
+## Regenerating Assets
+
+If you add or change PDF content or localization overrides:
+
+```powershell
+python tools\generate_decks.py --version 23
+```
+
+If you only want to re-apply grammar overrides/polish against the current generated bundle, use the existing Python helpers in `tools/generate_decks.py`.
+
+## Release Signing
+
+Release builds read signing values from [`local.properties`](local.properties).
+
+Expected keys:
+
+```properties
+FLASHDEUTSCH_STORE_FILE=...
+FLASHDEUTSCH_STORE_PASSWORD=...
+FLASHDEUTSCH_KEY_ALIAS=...
+FLASHDEUTSCH_KEY_PASSWORD=...
+FLASHDEUTSCH_PLAY_PRO_SUBSCRIPTION_PRODUCT_ID=flashdeutsch_pro_monthly
+```
+
+Then build:
+
+```powershell
+$env:JAVA_HOME='C:\Program Files\Android\Android Studio\jbr'
+$env:Path="$env:JAVA_HOME\bin;$env:Path"
+.\gradlew bundleRelease
+```
+
+Release AAB output:
+
+- `app/build/outputs/bundle/release/app-release.aab`
+
+## Website and Legal Pages
+
+The repository includes the GitHub Pages site under [`docs/`](docs/):
+
+- landing page
+- privacy policy
+- terms
+- support page
+
+Published target:
+
+- `https://farzadj.github.io/FlashDeutsch/`
 
 ## Project Layout
 
@@ -109,78 +247,20 @@ app/
       parser/importer/
       settings/
       ui/
+    res/
+docs/
 tools/
   generate_decks.py
+  grammar_translation_overrides*.json
   tests/
 ```
 
-## How To Add a New PDF Deck
-
-1. Copy the PDF into `app/src/main/assets/pdfs/`.
-2. Add filename metadata in [`tools/generate_decks.py`](tools/generate_decks.py):
-   - display name
-   - group name
-   - sort order
-3. Run:
-
-```powershell
-python tools\generate_decks.py --version 2
-```
-
-This step may take a while the first time because learning-language support text is generated and cached.
-
-4. Rebuild the app:
-
-```powershell
-$env:JAVA_HOME='C:\Program Files\Android\Android Studio\jbr'
-$env:GRADLE_USER_HOME=(Resolve-Path '.gradle-home').Path
-$env:ANDROID_USER_HOME=(Resolve-Path '.android-home').Path
-.\gradlew.bat assembleDebug --no-daemon
-```
-
-5. If you changed parsing rules, run the parser tests:
-
-```powershell
-python -m unittest discover -s tools\tests -v
-```
-
-## Build
-
-```powershell
-.\gradlew.bat assembleDebug
-```
-
-The debug APK is produced under:
-
-- `app/build/outputs/apk/debug/`
-
-## Tests
-
-### JVM unit tests
-
-```powershell
-$env:JAVA_HOME='C:\Program Files\Android\Android Studio\jbr'
-$env:GRADLE_USER_HOME=(Resolve-Path '.gradle-home').Path
-$env:ANDROID_USER_HOME=(Resolve-Path '.android-home').Path
-.\gradlew.bat testDebugUnitTest --no-daemon
-```
-
-### Android UI test compilation
-
-```powershell
-$env:JAVA_HOME='C:\Program Files\Android\Android Studio\jbr'
-$env:GRADLE_USER_HOME=(Resolve-Path '.gradle-home').Path
-$env:ANDROID_USER_HOME=(Resolve-Path '.android-home').Path
-.\gradlew.bat assembleDebugAndroidTest --no-daemon
-```
-
-### PDF parser tests
-
-```powershell
-python -m unittest discover -s tools\tests -v
-```
-
 ## Notes
+
+- Generated assets are committed, so Android builds do not require Python.
+- The first translation/content generation pass is the slow step; reruns are faster because caches and manual overrides are reused.
+- Core learning works offline after install, but ads, consent, and subscription flows require network access.
+- The current app uses local device persistence for milestone unlocks, settings, progress, saved cards, and custom cards.
 
 - The repository includes generated assets so the app builds without requiring Python at build time.
 - The first translation pass is the slow step because it fills offline learning-language fields; reruns are much faster because `tools/translation_cache.json` is reused.
