@@ -1,3 +1,5 @@
+[FlashDeutsch website](https://farzadj.github.io/FlashDeutsch/)
+
 # FlashDeutsch
 
 FlashDeutsch is a native Android flashcard app for learners of German with Persian, English, Spanish, Russian, and Arabic learning-language modes. It is fully offline after install and uses the bundled study PDFs in [`app/src/main/assets/pdfs`](app/src/main/assets/pdfs) as its source material.
