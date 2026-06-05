@@ -27,69 +27,98 @@
       <section class="policy-hero">
         <span class="eyebrow">Privacy Policy</span>
         <h1>FlashDeutsch Privacy Policy</h1>
-        <p class="lead">Last updated: April 30, 2026</p>
+        <p class="lead">Last updated: June 5, 2026</p>
       </section>
 
       <section class="policy-card">
         <h2>1. Who this policy applies to</h2>
-        <p>This Privacy Policy applies to the FlashDeutsch Android application and the GitHub Pages website published for the project at <code>farzadj.github.io/FlashDeutsch</code>.</p>
-        <p>App package name: <code>com.flashdeutsch</code>.</p>
+        <p>This Privacy Policy applies to FlashDeutsch for iOS and Android, and to the FlashDeutsch website published through GitHub Pages.</p>
+        <ul>
+          <li>iOS bundle identifier: <code>com.fj.flashdeutsch</code></li>
+          <li>Android application ID: <code>com.fj.flashdeutsch</code></li>
+          <li>Website: <code>https://farzadj.github.io/FlashDeutsch/</code></li>
+        </ul>
+        <p>FlashDeutsch is an offline-first German learning app. The app does not require a FlashDeutsch account, and the core flashcard features do not depend on a custom FlashDeutsch backend server.</p>
       </section>
 
       <section class="policy-card">
-        <h2>2. What FlashDeutsch stores on your device</h2>
-        <p>FlashDeutsch is designed to work offline after installation. The app stores most study information locally on your device, including:</p>
+        <h2>2. Local app data</h2>
+        <p>FlashDeutsch stores study data locally on your device so the app can remember your learning state. This can include:</p>
         <ul>
           <li>study progress and session history</li>
           <li>favorites and hard-card markers</li>
-          <li>settings such as theme, language, speech, and study preferences</li>
+          <li>saved-card review unlocks</li>
+          <li>settings such as theme, app language, your language, speech, and study preferences</li>
           <li>milestone progress and locally unlocked milestones</li>
           <li>user-created flashcards and local edits to bundled cards</li>
         </ul>
-        <p>This local data is stored using on-device app storage technologies such as Room and DataStore.</p>
+        <p>On Android, this data is stored with on-device app storage such as Room and DataStore. On iOS, this data is stored in the app's local device storage. Local app data may also be included in device backups if your Apple or Android device backup settings allow it.</p>
+        <p>Uninstalling FlashDeutsch, clearing app storage, or resetting progress inside the app can remove local study data from your device, depending on the platform and backup settings.</p>
       </section>
 
       <section class="policy-card">
         <h2>3. Data FlashDeutsch does not require</h2>
-        <p>FlashDeutsch does not require a custom backend account to study. The app does not depend on a personal login system to use its core flashcard features.</p>
+        <p>FlashDeutsch does not require you to create a user account. The app does not ask for your name, email address, contacts, photos, microphone, or precise GPS location for its core learning features.</p>
       </section>
 
       <section class="policy-card">
-        <h2>4. Advertising</h2>
-        <p>FlashDeutsch may use Google Mobile Ads, including rewarded or interstitial ad flows, depending on the feature and app configuration.</p>
-        <p>If ads are shown, Google and its partners may process device and advertising-related information according to Google's own privacy terms and consent flows.</p>
-        <p>The app also uses Google's User Messaging Platform (UMP) for consent where required.</p>
+        <h2>4. Advertising, consent, and tracking</h2>
+        <p>FlashDeutsch may show Google AdMob ads, including interstitial and rewarded ads. FlashDeutsch also uses Google's User Messaging Platform (UMP) to request and manage ad consent where required.</p>
+        <p>When ads are available, Google and its advertising partners may collect or process data such as:</p>
+        <ul>
+          <li>device identifiers and advertising identifiers</li>
+          <li>advertising data</li>
+          <li>product interaction and app usage data</li>
+          <li>approximate or coarse location</li>
+          <li>crash data, performance data, and other diagnostic data</li>
+          <li>consent choices and privacy settings related to ads</li>
+        </ul>
+        <p>On iOS, FlashDeutsch includes Apple's App Tracking Transparency prompt. If you allow tracking, the advertising identifier may be used to deliver personalized ads and measure ad performance. If you deny tracking, ads may still be shown, but they should be more limited or contextual according to the ad provider's behavior and your consent choices.</p>
+        <p>You can manage ad consent through the app's privacy options when available, and through your device privacy settings.</p>
       </section>
 
       <section class="policy-card">
-        <h2>5. Subscriptions and payments</h2>
-        <p>FlashDeutsch includes a Google Play Billing integration for an optional subscription product such as <code>flashdeutsch_pro_monthly</code>.</p>
-        <p>Payments, subscription status, and transaction handling are processed by Google Play, not by a custom FlashDeutsch payment server.</p>
+        <h2>5. Analytics</h2>
+        <p>The Android app uses Firebase Analytics to understand app usage and stability. Analytics events can include screen views, study start and finish events, milestone openings, ad availability and ad display events, and subscription status events. These events are designed to describe app behavior, not the full text of your custom flashcards.</p>
+        <p>The iOS app does not use Firebase Analytics in the current implementation. Apple, Google AdMob, and app store services may still provide aggregated reporting, diagnostics, and transaction information as part of their platforms.</p>
       </section>
 
       <section class="policy-card">
-        <h2>6. Speech and device services</h2>
-        <p>The app can use device text-to-speech services to read flashcard content aloud. Speech playback is handled through services available on your Android device.</p>
-        <p>FlashDeutsch may request speech output for German and, depending on the device, other supported learning languages.</p>
+        <h2>6. Subscriptions and payments</h2>
+        <p>FlashDeutsch offers an optional Pro subscription.</p>
+        <ul>
+          <li>iOS subscriptions are processed by Apple App Store and StoreKit. Current iOS product ID: <code>com.fj.flashdeutsch.pro.monthly</code>.</li>
+          <li>Android subscriptions are processed by Google Play Billing. Current Android product ID: <code>flashdeutsch_pro_monthly</code>.</li>
+        </ul>
+        <p>FlashDeutsch receives purchase status information needed to unlock Pro features, restore purchases, and show whether Pro is active. FlashDeutsch does not receive your full payment card details. Payment, renewal, cancellation, refund, and tax handling are managed by Apple or Google, depending on where you purchased the subscription.</p>
       </section>
 
       <section class="policy-card">
-        <h2>7. Network usage</h2>
+        <h2>7. Speech and device services</h2>
+        <p>FlashDeutsch can use your device's text-to-speech system to read German and supported translation text aloud. FlashDeutsch does not record audio and does not require microphone access for this feature. Speech behavior can depend on the voices and language support installed on your device.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>8. Network usage</h2>
         <p>Although FlashDeutsch is offline-first, some app flows may use the network for:</p>
         <ul>
-          <li>Google Mobile Ads</li>
-          <li>consent handling</li>
-          <li>Google Play Billing and subscription validation through Google Play</li>
-          <li>app distribution and updates through Google Play</li>
+          <li>Google AdMob ads</li>
+          <li>Google UMP consent flows</li>
+          <li>Firebase Analytics on Android</li>
+          <li>Apple StoreKit and Google Play Billing subscription flows</li>
+          <li>App Store and Google Play app distribution, updates, and subscription management</li>
+          <li>the FlashDeutsch website hosted on GitHub Pages</li>
         </ul>
       </section>
 
       <section class="policy-card">
-        <h2>8. Third-party services</h2>
+        <h2>9. Third-party services</h2>
         <p>FlashDeutsch may rely on the following third-party services:</p>
         <ul>
-          <li>Google Play Services / Google Mobile Ads</li>
-          <li>Google User Messaging Platform (UMP)</li>
+          <li>Google AdMob / Google Mobile Ads</li>
+          <li>Google User Messaging Platform</li>
+          <li>Firebase Analytics on Android</li>
+          <li>Apple App Store and StoreKit</li>
           <li>Google Play Billing</li>
           <li>GitHub Pages for this website</li>
         </ul>
@@ -97,38 +126,40 @@
       </section>
 
       <section class="policy-card">
-        <h2>9. Website hosting</h2>
-        <p>The FlashDeutsch website is hosted on GitHub Pages. Standard web-hosting logs or analytics handled by GitHub may apply when you visit the website.</p>
+        <h2>10. Website hosting</h2>
+        <p>The FlashDeutsch website is hosted on GitHub Pages. When you visit the website, GitHub may process standard hosting data such as IP address, browser information, request logs, and security-related information according to GitHub's own policies.</p>
       </section>
 
       <section class="policy-card">
-        <h2>10. Data retention and removal</h2>
-        <p>Because most app data is stored locally, uninstalling the app or clearing app storage can remove that local data from your device.</p>
-        <p>User-created cards and local edits are stored on-device unless future sync features are introduced.</p>
+        <h2>11. Data sharing</h2>
+        <p>FlashDeutsch does not sell personal information through a custom FlashDeutsch server. Data may be shared with or processed by third-party services listed above when needed for ads, consent, analytics, purchases, app distribution, website hosting, fraud prevention, security, legal compliance, or platform requirements.</p>
       </section>
 
       <section class="policy-card">
-        <h2>11. Your choices</h2>
+        <h2>12. Your choices</h2>
         <ul>
-          <li>You can change app settings such as language, theme, speech, and learning preferences inside the app.</li>
-          <li>You can reset progress from the app if that feature is enabled in settings.</li>
-          <li>You can choose whether to subscribe for Pro access through Google Play.</li>
-          <li>You can choose whether to engage with rewarded ad flows where they are offered.</li>
+          <li>You can change app settings such as theme, app language, your language, speech, and study preferences.</li>
+          <li>You can reset progress or clear local app data where the platform and app settings allow it.</li>
+          <li>You can manage ad consent through the privacy options shown in the app where available.</li>
+          <li>You can manage iOS tracking permission in iOS Settings.</li>
+          <li>You can manage Android advertising preferences in Android or Google settings.</li>
+          <li>You can subscribe, cancel, or manage Pro through Apple App Store or Google Play.</li>
+          <li>You can uninstall the app to remove local app data from the device, subject to backup behavior.</li>
         </ul>
       </section>
 
       <section class="policy-card">
-        <h2>12. Children's privacy</h2>
-        <p>FlashDeutsch is a language-learning app. If children use the app, parents or guardians should review ad, subscription, and device privacy settings before use.</p>
+        <h2>13. Children's privacy</h2>
+        <p>FlashDeutsch is a language-learning app. It is not intended to knowingly collect personal information from children through a custom FlashDeutsch account system. Parents or guardians should review device privacy settings, ad consent choices, and subscription settings before allowing a child to use the app.</p>
       </section>
 
       <section class="policy-card">
-        <h2>13. Changes to this policy</h2>
-        <p>This Privacy Policy may be updated when the app's features, data flows, or third-party services change. The updated version will be published on this page.</p>
+        <h2>14. Changes to this policy</h2>
+        <p>This Privacy Policy may be updated when FlashDeutsch features, data flows, third-party services, or legal requirements change. The updated version will be published in the repository and on this page.</p>
       </section>
 
       <section class="policy-card">
-        <h2>14. Contact</h2>
+        <h2>15. Contact</h2>
         <p>For project questions or privacy-related requests, use the project repository or issue tracker:</p>
         <ul>
           <li><a href="https://github.com/farzadj/FlashDeutsch" target="_blank" rel="noreferrer">GitHub repository</a></li>
