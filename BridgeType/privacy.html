@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BridgeType Privacy Policy</title>
+  <meta name="description" content="Privacy Policy for BridgeType, an Android translator keyboard.">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="./index.html" aria-label="BridgeType home">
+        <img src="./assets/bridge_icon.png" alt="BridgeType icon" class="brand-mark">
+        <span>BridgeType</span>
+      </a>
+      <nav class="topnav">
+        <a href="./index.html">Home</a>
+        <a href="./privacy.html" class="is-active">Privacy</a>
+        <a href="./terms.html">Terms</a>
+        <a href="./support.html">Support</a>
+        <a href="https://github.com/farzadj/ChatTranslatorKeyboard" target="_blank" rel="noreferrer">GitHub</a>
+      </nav>
+    </header>
+
+    <main class="policy-page">
+      <section class="policy-hero">
+        <span class="eyebrow">Privacy Policy</span>
+        <h1>BridgeType Privacy Policy</h1>
+        <p class="lead">Last updated: June 7, 2026</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>1. Who this policy applies to</h2>
+        <p>This Privacy Policy applies to the BridgeType Android app and the BridgeType website published through GitHub Pages.</p>
+        <ul>
+          <li>Android application ID: <code>com.fj.BridgeType</code></li>
+          <li>Website: <code>https://farzadj.github.io/BridgeType/</code></li>
+        </ul>
+        <p>BridgeType is a translator keyboard app. It does not require a BridgeType account and does not depend on a custom BridgeType server for its core translation features.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>2. Privacy-first keyboard design</h2>
+        <p>BridgeType is designed to translate messages without unsafe access to private messenger screens.</p>
+        <ul>
+          <li>No AccessibilityService is used.</li>
+          <li>No chat screen scraping is used.</li>
+          <li>No overlay is used to inspect another app's private messages.</li>
+          <li>No clipboard monitoring is used.</li>
+          <li>BridgeType does not collect or store your chat messages.</li>
+        </ul>
+        <p>The app uses normal Android keyboard and text-sharing APIs. This means the user controls what text is typed, pasted, dictated, selected, shared, translated, copied, or inserted.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>3. Text BridgeType can process</h2>
+        <p>BridgeType can process text only when you explicitly provide it through app features such as:</p>
+        <ul>
+          <li>text you type in the BridgeType keyboard draft box</li>
+          <li>text you type directly into the currently focused messenger text field with the keyboard</li>
+          <li>text you paste into Receive mode using the paste button</li>
+          <li>text you select and send to BridgeType through Android ACTION_PROCESS_TEXT</li>
+          <li>text you share to BridgeType through Android ACTION_SEND</li>
+          <li>speech you start by tapping the mic button</li>
+        </ul>
+        <p>BridgeType does not scan full conversations and does not automatically read messages from WhatsApp, Telegram, Signal, Instagram, SMS, or other apps.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>4. Translation and language detection</h2>
+        <p>BridgeType uses Google ML Kit on-device Translation and Language Identification for the current MVP.</p>
+        <ul>
+          <li>Language models may need to be downloaded before a language pair can be translated.</li>
+          <li>Internet access may be used to download ML Kit language models.</li>
+          <li>After the required model is available, translation runs on the device.</li>
+          <li>Translation text is used in memory to produce the requested translation and is not saved by BridgeType as chat history.</li>
+        </ul>
+        <p>Model availability, selected languages, voice settings, keyboard style, keyboard color, saved language pairs, and feature usage counters may be stored locally so the app can remember your settings.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>5. Voice recognition</h2>
+        <p>BridgeType can use Android speech recognition after you tap the mic button. This requires microphone permission.</p>
+        <ul>
+          <li>BridgeType starts voice recognition only after your explicit action.</li>
+          <li>BridgeType does not continuously listen in the background.</li>
+          <li>BridgeType does not store voice recordings.</li>
+          <li>Speech recognition behavior can depend on your device, Android version, installed speech services, and Google settings.</li>
+        </ul>
+        <p>Depending on the speech recognizer available on your device, audio may be processed by a device speech service such as Google speech recognition. Those services operate under their own privacy policies and device settings.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>6. Clipboard use</h2>
+        <p>BridgeType does not monitor the clipboard and does not watch for clipboard changes.</p>
+        <p>Clipboard access can happen only after an explicit user action, for example pressing a paste button, pressing a copy button, or using normal Android text editing controls.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>7. Local app data</h2>
+        <p>BridgeType stores app settings locally on your device. This can include:</p>
+        <ul>
+          <li>default source and target language choices</li>
+          <li>saved language pairs</li>
+          <li>keyboard language layout selection</li>
+          <li>theme, color, and keyboard style choices</li>
+          <li>voice timing settings</li>
+          <li>downloaded model status indicators</li>
+          <li>daily Live mode usage counters for free-plan limits</li>
+          <li>Pro entitlement status when applicable</li>
+        </ul>
+        <p>Draft message text and translated chat text are not stored as a message history by BridgeType. They may exist temporarily in app memory while you are using the keyboard or translation screen.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>8. Subscriptions and payments</h2>
+        <p>BridgeType may offer optional Pro access through Google Play subscriptions in production releases.</p>
+        <ul>
+          <li>Payments are processed by Google Play.</li>
+          <li>BridgeType does not receive your full payment card details.</li>
+          <li>BridgeType may receive purchase and entitlement status needed to unlock, restore, or limit Pro features.</li>
+          <li>Subscription cancellation, renewal, refund, and tax handling are managed through Google Play.</li>
+        </ul>
+      </section>
+
+      <section class="policy-card">
+        <h2>9. Network usage</h2>
+        <p>BridgeType can use network access for:</p>
+        <ul>
+          <li>downloading ML Kit language models</li>
+          <li>Google Play subscription and app distribution services, when Pro access is available</li>
+          <li>GitHub Pages website hosting</li>
+        </ul>
+        <p>The current app does not require a custom BridgeType backend server for translation.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>10. Third-party services</h2>
+        <p>BridgeType may rely on the following third-party services:</p>
+        <ul>
+          <li>Google ML Kit Translation and Language Identification</li>
+          <li>Android SpeechRecognizer and installed speech recognition services</li>
+          <li>Google Play and Google Play Billing, when subscriptions are available</li>
+          <li>GitHub Pages for this website</li>
+        </ul>
+        <p>These services operate under their own privacy policies and platform settings.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>11. Website hosting</h2>
+        <p>The BridgeType website is hosted on GitHub Pages. When you visit the website, GitHub may process standard hosting data such as IP address, browser information, request logs, and security-related information according to GitHub's policies.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>12. Your choices</h2>
+        <ul>
+          <li>You can enable or disable the BridgeType keyboard in Android keyboard settings.</li>
+          <li>You can choose when to paste, copy, dictate, translate, share, or insert text.</li>
+          <li>You can remove downloaded language models through app settings where available or through Android app storage controls.</li>
+          <li>You can deny microphone permission if you do not want to use voice recognition.</li>
+          <li>You can clear app data or uninstall BridgeType to remove locally stored settings, subject to Android backup behavior.</li>
+          <li>You can manage subscriptions through Google Play if Pro access is available.</li>
+        </ul>
+      </section>
+
+      <section class="policy-card">
+        <h2>13. Children's privacy</h2>
+        <p>BridgeType is a general communication utility. It is not designed to knowingly collect personal information from children through a BridgeType account system. Parents or guardians should review device keyboard, microphone, subscription, and privacy settings before allowing a child to use the app.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>14. Changes to this policy</h2>
+        <p>This Privacy Policy may be updated when BridgeType features, data flows, third-party services, or legal requirements change. The updated version will be published on this page.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>15. Contact</h2>
+        <p>For project questions, bug reports, support, or privacy-related requests, use the project repository or support page:</p>
+        <ul>
+          <li><a href="https://github.com/farzadj/ChatTranslatorKeyboard" target="_blank" rel="noreferrer">GitHub repository</a></li>
+          <li><a href="https://github.com/farzadj/ChatTranslatorKeyboard/issues" target="_blank" rel="noreferrer">GitHub issues</a></li>
+          <li><a href="./support.html">Support page</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>BridgeType</strong>
+        <span>Privacy Policy</span>
+      </div>
+      <div class="footer-links">
+        <a href="./index.html">Home</a>
+        <a href="./terms.html">Terms of Use</a>
+        <a href="./support.html">Support</a>
+        <a href="https://github.com/farzadj/ChatTranslatorKeyboard" target="_blank" rel="noreferrer">Repository</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

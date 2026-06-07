@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BridgeType</title>
+  <meta name="description" content="BridgeType is a privacy-first Android translator keyboard for composing, receiving, and translating chat messages with on-device ML Kit translation.">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="./index.html" aria-label="BridgeType home">
+        <img src="./assets/bridge_icon.png" alt="BridgeType icon" class="brand-mark">
+        <span>BridgeType</span>
+      </a>
+      <nav class="topnav">
+        <a href="#features">Features</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#plans">Free and Pro</a>
+        <a href="./privacy.html">Privacy Policy</a>
+        <a href="./support.html">Support</a>
+        <a href="https://github.com/farzadj/ChatTranslatorKeyboard" target="_blank" rel="noreferrer">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Android translator keyboard</span>
+          <h1>Translate chats without reading your chats.</h1>
+          <p class="lead">
+            BridgeType is a Play-Store-safe keyboard for translating outgoing and incoming messages in
+            WhatsApp, Telegram, Signal, Instagram DMs, SMS, and other apps that use normal text fields.
+          </p>
+          <div class="pill-row">
+            <span class="pill">On-device ML Kit</span>
+            <span class="pill">Custom IME keyboard</span>
+            <span class="pill">Selected text translator</span>
+            <span class="pill">Voice input</span>
+          </div>
+          <div class="cta-row">
+            <a class="button button-primary" href="./privacy.html">Read Privacy Policy</a>
+            <a class="button button-secondary" href="https://github.com/farzadj/ChatTranslatorKeyboard" target="_blank" rel="noreferrer">Open Repository</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="BridgeType keyboard preview">
+          <div class="device-card">
+            <div class="phone-bar">
+              <span class="mode-pill">Mode: Compose</span>
+              <span class="toolbar-dot"></span>
+              <span class="toolbar-dot"></span>
+              <span class="toolbar-dot"></span>
+            </div>
+            <div class="language-row">
+              <span class="language-card">Auto detect</span>
+              <span class="swap-button">&harr;</span>
+              <span class="language-card">English</span>
+            </div>
+            <div class="draft-box">
+              <span class="cursor"></span>
+            </div>
+            <div class="action-row">
+              <span class="action-primary">Translate</span>
+              <span class="action-secondary">Clear</span>
+            </div>
+            <div class="keyboard-preview">
+              <span>q</span><span>w</span><span>e</span><span>r</span><span>t</span><span>y</span><span>u</span><span>i</span><span>o</span><span>p</span>
+              <span>a</span><span>s</span><span>d</span><span>f</span><span>g</span><span>h</span><span>j</span><span>k</span><span>l</span>
+              <span class="wide-key">&uarr;</span><span>z</span><span>x</span><span>c</span><span>v</span><span>b</span><span>n</span><span>m</span><span class="wide-key">&#9003;</span>
+              <span class="wide-key">?123</span><span class="space-key">English</span><span class="send-key">&#8629;</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-strip">
+        <div class="stat-card">
+          <strong>Platform</strong>
+          <span>Android - Kotlin - Jetpack Compose</span>
+        </div>
+        <div class="stat-card">
+          <strong>Translation</strong>
+          <span>ML Kit on-device translation with model download handling</span>
+        </div>
+        <div class="stat-card">
+          <strong>Safety</strong>
+          <span>No AccessibilityService, no screen scraping, no clipboard monitoring</span>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="section-heading">
+          <span class="eyebrow">What the app does</span>
+          <h2>A translator built for real chat workflows.</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card feature-gold">
+            <h3>Compose mode</h3>
+            <p>Type in the keyboard draft, translate, preview the result, and insert it into the focused messenger text field.</p>
+          </article>
+          <article class="feature-card feature-teal">
+            <h3>Receive mode</h3>
+            <p>Paste or dictate incoming text in the keyboard, then translate it without changing the outgoing message box.</p>
+          </article>
+          <article class="feature-card feature-purple">
+            <h3>Live mode</h3>
+            <p>Translate while typing and insert translated text through the normal Android input connection.</p>
+          </article>
+          <article class="feature-card feature-orange">
+            <h3>Selected text</h3>
+            <p>Translate text explicitly selected or shared by the user through Android ACTION_PROCESS_TEXT or ACTION_SEND.</p>
+          </article>
+          <article class="feature-card feature-red">
+            <h3>Voice translation</h3>
+            <p>Start speech recognition from the mic button, control voice timing settings, and translate recognized text.</p>
+          </article>
+          <article class="feature-card feature-blue">
+            <h3>Themes and languages</h3>
+            <p>Use language-specific layouts, saved language pairs, keyboard themes, color options, emoji, and ready phrases.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="privacy" class="section highlight-section">
+        <div class="section-heading">
+          <span class="eyebrow">Privacy-first design</span>
+          <h2>BridgeType avoids unsafe messenger access patterns.</h2>
+        </div>
+        <div class="two-column">
+          <div class="info-panel">
+            <h3>No chat screen inspection</h3>
+            <p>The app does not read full chat screens, scrape chat bubbles, use overlays, or modify other messenger apps.</p>
+          </div>
+          <div class="info-panel">
+            <h3>No clipboard monitoring</h3>
+            <p>Clipboard access is only tied to explicit user actions such as pressing paste or copy. The app does not listen for clipboard changes.</p>
+          </div>
+          <div class="info-panel">
+            <h3>Keyboard text only</h3>
+            <p>The keyboard processes the text the user types, dictates, pastes, or explicitly sends to BridgeType for translation.</p>
+          </div>
+          <div class="info-panel">
+            <h3>On-device translation</h3>
+            <p>After language models are downloaded, ML Kit translation runs on the device. Messages are not stored by BridgeType.</p>
+          </div>
+        </div>
+        <div class="cta-row">
+          <a class="button button-primary" href="./privacy.html">View full privacy policy</a>
+          <a class="button button-secondary" href="./support.html">Contact support</a>
+        </div>
+      </section>
+
+      <section id="plans" class="section">
+        <div class="section-heading">
+          <span class="eyebrow">Free and Pro</span>
+          <h2>Simple free access, with Pro for heavy daily translation.</h2>
+        </div>
+        <div class="plan-grid">
+          <article class="plan-card">
+            <span class="plan-badge">Free</span>
+            <h3>Start translating safely</h3>
+            <ul>
+              <li>Compose mode</li>
+              <li>Receive mode</li>
+              <li>Selected text translator</li>
+              <li>Basic voice translation</li>
+              <li>Limited Live mode</li>
+              <li>One saved language pair</li>
+              <li>One keyboard theme and color</li>
+            </ul>
+          </article>
+          <article class="plan-card plan-pro">
+            <span class="plan-badge">Pro</span>
+            <h3>For frequent cross-language chats</h3>
+            <ul>
+              <li>Unlimited Live mode</li>
+              <li>Unlimited saved language pairs</li>
+              <li>All keyboard themes and colors</li>
+              <li>Longer voice translation</li>
+              <li>Advanced voice timing settings</li>
+              <li>Ready-to-use translated phrases</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section support-section">
+        <img src="./assets/bridge_character.png" alt="BridgeType character" class="support-character">
+        <div>
+          <span class="eyebrow">Support</span>
+          <h2>Need help setting up the keyboard?</h2>
+          <p class="lead">Use the support page for setup help, privacy questions, bug reports, and feature requests.</p>
+          <div class="cta-row">
+            <a class="button button-primary" href="./support.html">Open Support</a>
+            <a class="button button-secondary" href="./terms.html">Terms of Use</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>BridgeType</strong>
+        <span>Package name: <code>com.fj.BridgeType</code></span>
+      </div>
+      <div class="footer-links">
+        <a href="./privacy.html">Privacy Policy</a>
+        <a href="./terms.html">Terms of Use</a>
+        <a href="./support.html">Support</a>
+        <a href="https://github.com/farzadj/ChatTranslatorKeyboard" target="_blank" rel="noreferrer">Repository</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
