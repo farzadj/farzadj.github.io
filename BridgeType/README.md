@@ -59,6 +59,14 @@ The keyboard only processes:
 
 Clipboard access is only used after an explicit user action, such as pressing paste/copy. The app does not listen for clipboard changes.
 
+## Analytics
+
+BridgeType includes a privacy-safe analytics abstraction with optional Firebase Analytics support. Events are limited to feature usage and outcomes, such as app open, keyboard mode changes, language/model status, translation success/failure, voice recognizer outcome, and settings changes.
+
+Analytics events must not include message text, translated text, selected incoming text, voice transcripts, clipboard contents, chat screen content, contact data, phone numbers, or messenger app names. Text is represented only by coarse length buckets such as `1_20` or `81_200`.
+
+Real Firebase uploads require adding `app/google-services.json` for application ID `com.fj.BridgeType`. Without that file, the Firebase tracker safely no-ops and the app still builds.
+
 ## Tech Stack
 
 - Kotlin
@@ -66,6 +74,7 @@ Clipboard access is only used after an explicit user action, such as pressing pa
 - Android `InputMethodService`
 - ML Kit Translation
 - ML Kit Language ID
+- Firebase Analytics event hooks
 - Android `ACTION_PROCESS_TEXT`
 - Android `ACTION_SEND`
 - Simple dependency container
@@ -89,6 +98,7 @@ The app declares:
 - `ProcessTextActivity` for selected text translation.
 - `ProcessTextActivity` for shared text translation.
 - Internet permission for ML Kit model download.
+- Firebase Analytics if `google-services.json` is configured.
 - Record audio permission for explicit voice recognition.
 
 ## Build
@@ -125,6 +135,9 @@ To publish it at `https://farzadj.github.io/BridgeType/`, configure GitHub Pages
 
 - The keyboard uses standard IME APIs only.
 - True automatic reading of unselected messenger messages is intentionally not implemented because it would require unsafe screen access.
+- Some apps may limit text selection or replacement. In those cases, use Android share actions when available.
+- ML Kit model downloads may require network access during setup, but translation runs on device after the model is available.
+essages is intentionally not implemented because it would require unsafe screen access.
 - Some apps may limit text selection or replacement. In those cases, use Android share actions when available.
 - ML Kit model downloads may require network access during setup, but translation runs on device after the model is available.
 
