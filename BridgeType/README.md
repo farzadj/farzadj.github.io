@@ -1,3 +1,6 @@
+[BridgeType website](https://farzadj.github.io/BridgeType/)
+
+
 # BridgeType
 
 An Android Kotlin app that provides a Play Store safe translator keyboard for chat apps.
