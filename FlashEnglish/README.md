@@ -34,6 +34,17 @@ That bundle includes:
 - Custom card creation and editing
 - Offline-first progress and settings persistence
 - English speech playback with device TTS
+- Free plan:
+  - A1 and A2 libraries
+  - first 3 milestones per free level
+  - 100 custom cards
+  - basic completion summaries
+- Pro plan:
+  - B1, B2, C1, and their grammar paths
+  - all 10 milestones per level
+  - Favorite/Hard marking, saved decks, and level review
+  - unlimited custom cards
+  - detailed performance analysis
 - App interface languages:
   - English
   - German
@@ -55,7 +66,6 @@ That bundle includes:
 - MVVM with screen-level `ViewModel`s
 - Room
 - DataStore
-- Google Mobile Ads
 - Google Play Billing
 
 ## Architecture
@@ -263,3 +273,4 @@ python tools\audit_flashcards.py
 - Learner-language availability in the UI is derived from imported card content, not from a hardcoded language list.
 - Android UI tests are included, but running them still requires an emulator or device.
 - The repo also contains a GitHub Pages site in `docs/` for landing, support, privacy, and terms pages.
+
