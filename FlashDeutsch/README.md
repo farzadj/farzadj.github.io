@@ -17,9 +17,21 @@ The app is built with Kotlin, Jetpack Compose, Room, and DataStore. Study conten
 - Saved `Favorite` and `Hard` review
 - Custom flashcard creation and editing
 - German text-to-speech playback
-- Optional ad-supported unlock flows and a Google Play Pro subscription
+- Optional Google Play Pro subscription for supporting development
 - Jobs / workplace vocabulary workflow with dedicated decks
 - Fully offline core learning after install
+
+## Free and Pro Split
+
+Core study remains available for free users. Pro unlocks higher-capacity learning tools:
+
+- Free users can study `A1` and `A2`. Pro unlocks `B1`, `B1+`, `B2`, and their grammar paths.
+- Free users can open the first 3 milestones. Pro unlocks all 10 milestones for every level.
+- Favorite and Hard card marking, saved decks, and level review are Pro features.
+- Free users can download one optional content pack in one language. Pro unlocks unlimited downloadable packs and languages.
+- Free users can create up to 100 custom cards. Pro unlocks unlimited custom cards and collections.
+- Free users see the study completion summary. Pro unlocks detailed performance analysis after each full study set.
+- Existing local data stays on the device after updates; limits apply to opening locked levels, opening locked milestones, saved review, new downloads, new languages, and new custom cards.
 
 ## Supported Languages
 
@@ -64,9 +76,9 @@ Source PDFs live in [`app/src/main/assets/pdfs/`](app/src/main/assets/pdfs/).
 - Room
 - DataStore Preferences
 - Gson
-- Google Mobile Ads SDK
-- Google UMP consent SDK
 - Google Play Billing
+- Firebase Analytics
+- Firebase Storage
 
 Build config:
 
@@ -100,7 +112,7 @@ Build config:
 2. On first launch or asset-version change, the repository imports those assets into Room.
 3. Screen `ViewModel`s observe repository `Flow`s and expose immutable UI state.
 4. Progress, saved cards, milestone unlocks, app settings, and Pro state are persisted locally.
-5. Ads, consent, and Play Billing are integrated on top of the offline core app flow.
+5. Firebase Analytics, optional downloadable packs, and Play Billing are integrated on top of the offline core app flow.
 
 ## Content Pipeline
 
@@ -259,10 +271,6 @@ tools/
 
 - Generated assets are committed, so Android builds do not require Python.
 - The first translation/content generation pass is the slow step; reruns are faster because caches and manual overrides are reused.
-- Core learning works offline after install, but ads, consent, and subscription flows require network access.
+- Core learning works offline after install, but downloadable packs, analytics, and subscription flows require network access.
 - The current app uses local device persistence for milestone unlocks, settings, progress, saved cards, and custom cards.
 
-- The repository includes generated assets so the app builds without requiring Python at build time.
-- The first translation pass is the slow step because it fills offline learning-language fields; reruns are much faster because `tools/translation_cache.json` is reused.
-- The Android UI tests are included and compile successfully. Running them still requires an emulator or device.
-- The project uses the AGP 9 built-in Kotlin toolchain with `com.android.legacy-kapt` for Room code generation because it is the most stable option in this environment.
