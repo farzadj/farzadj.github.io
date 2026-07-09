@@ -27,7 +27,7 @@
       <section class="policy-hero">
         <span class="eyebrow">Privacy Policy</span>
         <h1>FlashDeutsch Privacy Policy</h1>
-        <p class="lead">Last updated: July 8, 2026</p>
+        <p class="lead">Last updated: July 9, 2026</p>
       </section>
 
       <section class="policy-card">
@@ -62,15 +62,25 @@
       </section>
 
       <section class="policy-card">
-        <h2>4. Advertising and tracking</h2>
-        <p>The current FlashDeutsch app does not include an ad SDK or ad-consent SDK flows.</p>
-        <p>FlashDeutsch does not use an advertising identifier. Platform services such as Google Play, Apple App Store, Firebase, GitHub Pages, or device backups may still process data under their own policies when you use those services.</p>
+        <h2>4. Advertising, consent, and tracking</h2>
+        <p>The iOS app does not show ads, does not include Google AdMob or Google's User Messaging Platform (UMP), does not track users across apps or websites, and does not request App Tracking Transparency permission.</p>
+        <p>The Android app may show Google AdMob ads, including interstitial and rewarded ads, where configured. Android may also use Google's User Messaging Platform (UMP) to request and manage ad consent where required.</p>
+        <p>When ads are available on Android, Google and its advertising partners may collect or process data such as:</p>
+        <ul>
+          <li>device identifiers and advertising identifiers</li>
+          <li>advertising data</li>
+          <li>product interaction and app usage data</li>
+          <li>approximate or coarse location</li>
+          <li>crash data, performance data, and other diagnostic data</li>
+          <li>consent choices and privacy settings related to ads</li>
+        </ul>
+        <p>You can manage Android ad consent through the app's privacy options when available, and through your device privacy settings.</p>
       </section>
 
       <section class="policy-card">
         <h2>5. Analytics</h2>
-        <p>The Android app uses Firebase Analytics to understand app usage and stability. Analytics events can include screen views, study start and finish events, milestone openings, content pack download events, and subscription status events. These events are designed to describe app behavior, not the full text of your custom flashcards.</p>
-        <p>The iOS app does not use Firebase Analytics in the current implementation. Apple, Google, and app store services may still provide aggregated reporting, diagnostics, and transaction information as part of their platforms.</p>
+        <p>The Android app uses Firebase Analytics to understand app usage and stability. Analytics events can include screen views, study start and finish events, milestone openings, Android ad availability and Android ad display events, and subscription status events. These events are designed to describe app behavior, not the full text of your custom flashcards.</p>
+        <p>The iOS app does not use Firebase Analytics in the current implementation. Apple and app store services may still provide aggregated reporting, diagnostics, and transaction information as part of their platforms.</p>
       </section>
 
       <section class="policy-card">
@@ -84,29 +94,37 @@
       </section>
 
       <section class="policy-card">
-        <h2>7. Speech and device services</h2>
+        <h2>7. Downloadable study packs</h2>
+        <p>FlashDeutsch can offer optional downloadable study packs. These packs contain German learning content such as vocabulary, examples, translations, images, or related metadata. Downloadable packs are fetched from remote storage over HTTPS and then stored locally on your device for offline study.</p>
+        <p>FlashDeutsch does not require a FlashDeutsch account to download packs. The iOS app does not use downloadable packs for advertising or tracking.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>8. Speech and device services</h2>
         <p>FlashDeutsch can use your device's text-to-speech system to read German and supported translation text aloud. FlashDeutsch does not record audio and does not require microphone access for this feature. Speech behavior can depend on the voices and language support installed on your device.</p>
       </section>
 
       <section class="policy-card">
-        <h2>8. Network usage</h2>
+        <h2>9. Network usage</h2>
         <p>Although FlashDeutsch is offline-first, some app flows may use the network for:</p>
         <ul>
+          <li>Google AdMob ads and Google UMP consent flows on Android, where configured</li>
           <li>Firebase Analytics on Android</li>
-          <li>Firebase Storage optional study pack downloads</li>
+          <li>downloadable study pack manifest and pack files fetched from remote storage over HTTPS</li>
           <li>Apple StoreKit and Google Play Billing subscription flows</li>
           <li>App Store and Google Play app distribution, updates, and subscription management</li>
           <li>the FlashDeutsch website hosted on GitHub Pages</li>
         </ul>
-        <p>The app can download optional study packs from Firebase Storage and save them offline on your device.</p>
       </section>
 
       <section class="policy-card">
-        <h2>9. Third-party services</h2>
+        <h2>10. Third-party services</h2>
         <p>FlashDeutsch may rely on the following third-party services:</p>
         <ul>
+          <li>Google AdMob / Google Mobile Ads on Android, where configured</li>
+          <li>Google User Messaging Platform on Android, where configured</li>
           <li>Firebase Analytics on Android</li>
-          <li>Firebase Storage for optional study pack downloads</li>
+          <li>remote storage/CDN hosting for downloadable study packs</li>
           <li>Apple App Store and StoreKit</li>
           <li>Google Play Billing</li>
           <li>GitHub Pages for this website</li>
@@ -115,37 +133,39 @@
       </section>
 
       <section class="policy-card">
-        <h2>10. Website hosting</h2>
+        <h2>11. Website hosting</h2>
         <p>The FlashDeutsch website is hosted on GitHub Pages. When you visit the website, GitHub may process standard hosting data such as IP address, browser information, request logs, and security-related information according to GitHub's own policies.</p>
       </section>
 
       <section class="policy-card">
-        <h2>11. Data sharing</h2>
-        <p>FlashDeutsch does not sell personal information through a custom FlashDeutsch server. Data may be shared with or processed by third-party services listed above when needed for analytics, optional pack downloads, purchases, app distribution, website hosting, fraud prevention, security, legal compliance, or platform requirements.</p>
+        <h2>12. Data sharing</h2>
+        <p>FlashDeutsch does not sell personal information through a custom FlashDeutsch server. Data may be shared with or processed by third-party services listed above when needed for Android ads and consent, analytics, purchases, app distribution, website hosting, fraud prevention, security, legal compliance, or platform requirements.</p>
       </section>
 
       <section class="policy-card">
-        <h2>12. Your choices</h2>
+        <h2>13. Your choices</h2>
         <ul>
           <li>You can change app settings such as theme, app language, your language, speech, and study preferences.</li>
           <li>You can reset progress or clear local app data where the platform and app settings allow it.</li>
+          <li>You can manage Android ad consent through the privacy options shown in the app where available.</li>
+          <li>You can manage Android advertising preferences in Android or Google settings.</li>
           <li>You can subscribe, cancel, or manage Pro through Apple App Store or Google Play.</li>
           <li>You can uninstall the app to remove local app data from the device, subject to backup behavior.</li>
         </ul>
       </section>
 
       <section class="policy-card">
-        <h2>13. Children's privacy</h2>
+        <h2>14. Children's privacy</h2>
         <p>FlashDeutsch is a language-learning app. It is not intended to knowingly collect personal information from children through a custom FlashDeutsch account system. Parents or guardians should review device privacy settings, ad consent choices, and subscription settings before allowing a child to use the app.</p>
       </section>
 
       <section class="policy-card">
-        <h2>14. Changes to this policy</h2>
+        <h2>15. Changes to this policy</h2>
         <p>This Privacy Policy may be updated when FlashDeutsch features, data flows, third-party services, or legal requirements change. The updated version will be published in the repository and on this page.</p>
       </section>
 
       <section class="policy-card">
-        <h2>15. Contact</h2>
+        <h2>16. Contact</h2>
         <p>For project questions or privacy-related requests, use the project repository or issue tracker:</p>
         <ul>
           <li><a href="https://github.com/farzadj/FlashDeutsch" target="_blank" rel="noreferrer">GitHub repository</a></li>
